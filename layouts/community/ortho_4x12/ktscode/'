@@ -1,3 +1,6 @@
+// Can't Remember Sh*t Keymap for 4x12 ortho
+// http://www.keyboard-layout-editor.com/#/gists/c6c0ac051b2b118a34ef84ebadab54c7
+
 #include QMK_KEYBOARD_H
 #include "action_layer.h"
 #ifdef AUDIO_ENABLE
@@ -34,23 +37,6 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* Raise
- * ,-----------------------------------------------------------------------------------.
- * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Del  |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Ctrl | Wh Up|LeftC | M-Up |RightC|QWERTY| Left | Down |  Up  | Right|  |   |   \  |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      | Wh Dn| M-L  | M-Dn | M-R  |      |  -   |  =   |  [   |  ]   |  {   |  }   |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | LAlt | RCtrl| RAlt | GUI  |      |      |  Ins |      | Home | PGDN | PGUP |  End |
- * `-----------------------------------------------------------------------------------'
- */
-[_RAISE] = LAYOUT_ortho_4x12( \
-  KC_TILD,   KC_EXLM,     KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,   KC_RPRN, KC_DEL, \
-   KC_LCTL,   KC_WH_U,   KC_BTN1, KC_MS_U, KC_BTN2, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   KC_PIPE,  KC_BSLS, \
-  _______,   KC_WH_D,   KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC), \
-  KC_LALT, KC_RCTL, KC_RALT, KC_LGUI, _______, _______, KC_INS, _______, KC_HOME, KC_PGDN,   KC_PGUP,  KC_END \
-),
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
@@ -59,15 +45,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | LAlt | RCtrl| RAlt | GUI  | Lower| \Rse| Space|Raise |   [  |   -  |   =  |   ]  |
+ * | LAlt | RCtrl| RAlt | GUI  | Lower|SpcRse| Space|Raise |   [  |   -  |   =  |   ]  |
  * `-----------------------------------------------------------------------------------'
- * TODO figure out why KC_LGUI and KC_RALT are swapped
  */
 [_QWERTY] = LAYOUT_ortho_4x12( \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,   KC_P,    KC_BSPC, \
   KC_LCTL,  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_ENT), \
-  KC_LALT, KC_RCTL, KC_LGUI, KC_RALT, LOWER,  LT(4, KC_RCTL),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, CTL_T(KC_RBRC) \
+  KC_LALT, KC_RCTL, KCRLALT, KC_LGUI, LOWER,  LT(4, KC_SPC),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, CTL_T(KC_RBRC) \
 ),
 /* Lower   (switched to # because KP# were weird in terminal emulators)
  * ,-----------------------------------------------------------------------------------.
@@ -85,6 +70,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_4,  KC_5, KC_6,  KC_DOT, KC_ASTR, \
   _______,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,   KC_F12,  KC_1,  KC_2, KC_3, KC_SLSH,  _______, \
   KC_ESC, _______, _______, _______, _______, _______,    KC_0, _______,  _______, _______, KC_PLUS, _______ \
+),
+/* Raise
+ * ,-----------------------------------------------------------------------------------.
+ * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  |   _  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Del  | Wh Up|RightC| M-Up | LeftC|QWERTY| Left | Down |  Up  | Right|  |   |   \  |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |      | Wh Dn| M-L  | M-Dn | M-R  |      |  -   |  =   |  [   |  ]   |  {   |  }   |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Esc  | App  |      |      |      |      |  Ins |      | Home | PGDN | PGUP |  End |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_RAISE] = LAYOUT_ortho_4x12( \
+  KC_TILD,   KC_EXLM,     KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,   KC_RPRN, LKC_MINS, \
+   KC_DEL,   KC_WH_U,   KC_BTN2, KC_MS_U, KC_BTN1, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   KC_PIPE,  KC_BSLS, \
+  _______,   KC_WH_D,   KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC), \
+  KC_ESC,   KC_APP,   _______, _______, _______, _______, KC_INS, _______, KC_HOME, KC_PGDN,   KC_PGUP,  KC_END \
 ),
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
