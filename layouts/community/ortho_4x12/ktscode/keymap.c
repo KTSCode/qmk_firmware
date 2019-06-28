@@ -135,7 +135,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) //
       break;
     case 1: // this would trigger when you hit a key mapped as M(1)
       if (record->event.pressed) {
-        SEND_STRING("I love you Sarah!");
+        SEND_STRING("I love you, Sarah!");
       }
       break;
   }
