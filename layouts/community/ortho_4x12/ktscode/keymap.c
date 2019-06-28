@@ -38,18 +38,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Ctrl | Wh Up|LeftC | M-Up |RightC|QWERTY| Left | Down |  Up  | Right|  |   |   \  |
+ * | Ctrl | Wh Up|LeftC | M-Up |RightC|QWERTY| Left | Down |  Up  | Right|  _   |   \  |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      | Wh Dn| M-L  | M-Dn | M-R  |      |  -   |  =   |  [   |  ]   |  {   |  }   |
+ * |      | Wh Dn| M-L  | M-Dn | M-R  |  +   |  -   |  =   |  [   |  ]   |  {   |  }   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | LAlt | RCtrl| RAlt | GUI  |      |      |  Ins |      | Home | PGDN | PGUP |  End |
+ * |      |      |      |      |      |      |  Ins |      | Home | PGDN | PGUP |  End |
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_ortho_4x12( \
   KC_TILD,   KC_EXLM,     KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,   KC_RPRN, KC_DEL, \
-   KC_LCTL,   KC_WH_U,   KC_BTN1, KC_MS_U, KC_BTN2, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   KC_PIPE,  KC_BSLS, \
-  _______,   KC_WH_D,   KC_MS_L, KC_MS_D, KC_MS_R, _______, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC), \
-  KC_LALT, KC_RCTL, KC_RALT, KC_LGUI, _______, _______, KC_INS, _______, KC_HOME, KC_PGDN,   KC_PGUP,  KC_END \
+   KC_LCTL,   KC_WH_U,   KC_BTN1, KC_MS_U, KC_BTN2, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   RSFT(KC_MINS),  KC_BSLS, \
+  _______,   KC_WH_D,   KC_MS_L, KC_MS_D, KC_MS_R, RSFT(KC_EQL), KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC), \
+  _______, _______, _______, _______, _______, _______, KC_INS, _______, KC_HOME, KC_PGDN,   KC_PGUP,  MT(MOD_LGUI, KC_END) \
 ),
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | LAlt | RCtrl| RAlt | GUI  | Lower| \ Rai| Space|Raise |   [  |   -  |   =  |   ]  |
+ * | Esc  |C + S | RAlt | GUI  | Lower|\ Ctrl| Space|Raise |   [  |   -  |   =  |] Alt |
  * `-----------------------------------------------------------------------------------'
  * TODO figure out why KC_LGUI and KC_RALT are swapped
  */
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,   KC_P,    KC_BSPC, \
   KC_LCTL,  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_ENT), \
-  KC_LALT, KC_RCTL, KC_LGUI, KC_RALT, LOWER,  MT(MOD_LCTL, KC_BSLS),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, CTL_T(KC_RBRC) \
+  LCTL(KC_LSFT), KC_ESC, KC_RALT, KC_LGUI, LOWER,  MT(MOD_RCTL, KC_BSLS),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, MT(MOD_RALT, KC_RBRC) \
 ),
 /* Lower   (switched to # because KP# were weird in terminal emulators)
  * ,-----------------------------------------------------------------------------------.
@@ -77,14 +77,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |   1  |   2  |   3  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |      |      |      |      |      |   0  |      |      |      | KP_+ |      |
+ * |      |      |      |      |      |      |   0  |      |      |      | KP_+ |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_ortho_4x12( \
    KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,  KC_8, KC_9,    KC_0,  _______, \
    _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_4,  KC_5, KC_6,  KC_DOT, KC_ASTR, \
   _______,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,   KC_F12,  KC_1,  KC_2, KC_3, KC_SLSH,  _______, \
-  KC_ESC, _______, _______, _______, _______, _______,    KC_0, _______,  _______, _______, KC_PLUS, _______ \
+  KC_ESC, LCTL(KC_LSFT), _______, _______, _______, _______,    KC_0, _______,  _______, _______, KC_PLUS, _______ \
 ),
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
@@ -98,8 +98,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_ortho_4x12( \
-  KC_ESC, QWERTY,   _______, _______, RESET, M(0),  _______, _______, _______, _______, PLOVER, LALT(LCTL(KC_DEL)), \
-  KC_CAPS, _______, _______, AU_ON,   AU_OFF,  _______, AG_SWAP, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
+  KC_ESC, QWERTY,   _______, _______, RESET, M(0),  M(1), _______, _______, _______, PLOVER, LALT(LCTL(KC_DEL)), \
+  KC_CAPS, _______, _______, AU_ON,   AU_OFF,  _______, _______, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT,  KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, \
   BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, BL_DEC , BL_INC , BL_STEP \
 ),
@@ -131,6 +131,11 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) //
     case 0: // this would trigger when you hit a key mapped as M(0)
       if (record->event.pressed) {
         return MACRO( D(LSFT), T(LEFT), U(LSFT), D(LCTL), T(X), U(LCTL), T(RIGHT), D(LCTL), T(V), U(LCTL), T(LEFT),  END  ); // this swaps the characters on either side of the cursor when the macro executes
+      }
+      break;
+    case 1: // this would trigger when you hit a key mapped as M(1)
+      if (record->event.pressed) {
+        SEND_STRING("I love you Sarah!");
       }
       break;
   }
