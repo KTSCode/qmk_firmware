@@ -9,9 +9,9 @@ void led_set_kb(uint8_t usb_led) {
 
 void matrix_init_kb(void) {
 
-    // // green led on
-    // DDRD |= (1<<5);
-    // PORTD &= ~(1<<5);
+     // green led on
+     DDRD |= (1<<5);
+     PORTD &= ~(1<<5);
 
     // // orange led on
     // DDRB |= (1<<0);

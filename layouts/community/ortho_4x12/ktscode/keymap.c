@@ -88,20 +88,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * |  Esc |Qwerty|      |      |Reset |Macro0|      |      |      |      |PLOVER|C-A-D |
+ * |  Esc |Qwerty|      |      |Reset |Macro0|RGB_HUI|RGB_HUD|RGBreath|  |PLOVER|C-A-D |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Caps |      |      |Aud on|Audoff|      |AGswap|AGnorm| PrtSc|ScrLck| Break|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff| Prev | Next | Mute | VolDn| VolUp|      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite|      |      |      |      | Play/Pause  |      | BL_T |BL_DEC|BL_INC|BL_ST |
+ * | Brite|      |      |      |      | Play/Pause  |      |RGB_BR|RGB_F |RGB_R |RGB_T |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_ortho_4x12( \
-  KC_ESC, QWERTY,   _______, _______, RESET, M(0),  M(1), _______, _______, _______, PLOVER, LALT(LCTL(KC_DEL)), \
+  KC_ESC, QWERTY,   _______, _______, RESET, M(0),  M(1), RGB_HUI, RGB_HUD, RGB_MODE_BREATHE, PLOVER, LALT(LCTL(KC_DEL)), \
   KC_CAPS, _______, _______, AU_ON,   AU_OFF,  _______, _______, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT,  KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, \
-  BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, BL_DEC , BL_INC , BL_STEP \
+  BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, RGB_MOD , RGB_RMOD , RGB_TOG \
 ),
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
