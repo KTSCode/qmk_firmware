@@ -47,25 +47,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_ortho_4x12( \
   KC_TILD,   KC_EXLM,     KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,   KC_RPRN, KC_DEL, \
-   KC_LCTL,   KC_WH_U,   KC_BTN1, KC_MS_U, KC_BTN2, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   RSFT(KC_MINS),  KC_BSLS, \
+  _______,   KC_WH_U,   KC_BTN1, KC_MS_U, KC_BTN2, QWERTY, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,   RSFT(KC_MINS),  KC_BSLS, \
   _______,   KC_WH_D,   KC_MS_L, KC_MS_D, KC_MS_R, RSFT(KC_EQL), KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC), \
   _______, _______, _______, _______, _______, _______, KC_INS, _______, KC_HOME, KC_PGDN,   KC_PGUP,  MT(MOD_LGUI, KC_END) \
 ),
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Tab    | Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | LCtrl|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
+ * |Esc/Ctrl| A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift  | Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |C + S | RAlt | GUI  | Lower|\ Ctrl| Space|Raise |   [  |   -  |   =  |] Alt |
+ * | Esc    |C+S | RAlt | GUI  | Lower|\ Ctrl| Space|Raise |   [  |   -  |   =  |] Alt |
  * `-----------------------------------------------------------------------------------'
  * TODO figure out why KC_LGUI and KC_RALT are swapped
  */
 [_QWERTY] = LAYOUT_ortho_4x12( \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,   KC_P,    KC_BSPC, \
-  KC_LCTL,  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
+  LCTL_T(KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_ENT), \
   LCTL(KC_LSFT), KC_ESC, KC_RALT, KC_LGUI, LOWER,  MT(MOD_RCTL, KC_BSLS),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, MT(MOD_RALT, KC_RBRC) \
 ),
