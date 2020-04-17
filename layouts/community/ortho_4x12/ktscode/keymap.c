@@ -21,6 +21,7 @@ extern keymap_config_t keymap_config;
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
+  GAME,
   LOWER,
   RAISE,
   BACKLIT,
@@ -90,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |  Esc |Qwerty|      |      |Reset |Macro0|RGB_HUI|RGB_HUD|RGBreath|  |PLOVER|C-A-D |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Caps |      |      |Aud on|Audoff|      |AGswap|AGnorm| PrtSc|ScrLck| Break|      |
+ * | Caps |      |      |Aud on|Audoff|GAME, |AGswap|AGnorm| PrtSc|ScrLck| Break|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff| Prev | Next | Mute | VolDn| VolUp|      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -99,9 +100,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_ortho_4x12( \
   KC_ESC, QWERTY,   _______, _______, RESET, M(0),  M(1), RGB_HUI, RGB_HUD, RGB_MODE_BREATHE, PLOVER, LALT(LCTL(KC_DEL)), \
-  KC_CAPS, _______, _______, AU_ON,   AU_OFF,  _______, _______, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
+  KC_CAPS, _______, _______, AU_ON,   AU_OFF,  GAME, _______, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
   _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT,  KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, \
   BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, RGB_MOD , RGB_RMOD , RGB_TOG \
+),
+/* Game
+ * ,-----------------------------------------------------------------------------------.
+ * |   T  |   1  |   Q  |   W  |   E  |   R  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * |   F  |Shift |   A  |   S  |   D  |   G  | Wh Up|LeftC | M-Up |RightC|   ;  |  '   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * |   B  | Ctrl |   Z  |   X  |   C  |   V  | Wh Dn| M-L  | M-Dn | M-R  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Alt  |   4  |   3  |   2  | Lower|    Space    |Raise | Left | Down |  Up  | Right|
+ * `-----------------------------------------------------------------------------------'
+ */
+[_GAME] = LAYOUT_ortho_4x12( \
+   KC_T,      KC_1,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC, \
+   KC_F,   KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_G, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_SCLN,  KC_QUOT, \
+   KC_B,   KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V, KC_WH_D,  KC_MS_L, KC_MS_D, KC_MS_R, KC_SLSH, _______ , \
+  KC_LALT,   KC_4,    KC_3,    KC_2,    LOWER,  KC_SPC,  KC_SPC,  RAISE, KC_LEFT, KC_DOWN,   KC_UP, KC_RIGHT \
 ),
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
@@ -182,6 +200,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         layer_off(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+      }
+      return false;
+      break;
+    case GAME:
+      if (record->event.pressed) {
+        #ifdef AUDIO_ENABLE
+          PLAY_SONG(music_scale);
+        #endif
+        persistant_default_layer_set(1UL<<_GAME);
       }
       return false;
       break;
