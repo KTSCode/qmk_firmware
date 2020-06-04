@@ -16,6 +16,10 @@ BOOTLOADER = qmk-dfu
 #
 BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes       # Mouse keys
+MOUSEKEY_DELAY = 10 				# Reduce default delay(300) for more responsive mouse buttons
+MOUSEKEY_INTERVAL = 1       # Reduce time between movements
+MOUSEKEY_MAX_SPEED = 10      # Reduce max speed for better control
+MOUSEKEY_TIME_TO_MAX = 0    # Reduce time to max speed for better response
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = yes        # Commands for debug and configuration

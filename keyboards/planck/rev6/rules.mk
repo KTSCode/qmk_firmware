@@ -8,6 +8,10 @@ MCU = STM32F303
 BOOTMAGIC_ENABLE = yes      # Virtual DIP switch configuration
 ## (Note that for BOOTMAGIC on Teensy LC you have to use a custom .ld script.)
 MOUSEKEY_ENABLE = yes      # Mouse keys
+MOUSEKEY_DELAY = 10 				# Reduce default delay(300) for more responsive mouse buttons
+MOUSEKEY_INTERVAL = 1       # Reduce time between movements
+MOUSEKEY_MAX_SPEED = 10      # Reduce max speed for better control
+MOUSEKEY_TIME_TO_MAX = 0    # Reduce time to max speed for better response
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = yes         # Console for debug
 COMMAND_ENABLE = yes       # Commands for debug and configuration

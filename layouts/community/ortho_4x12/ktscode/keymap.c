@@ -54,13 +54,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* Qwerty
  * ,-----------------------------------------------------------------------------------.
- * | Tab    | Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |Esc/Ctrl| A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift  | Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift|  Z   |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc    |C+S | RAlt | GUI  | Lower|\ Ctrl| Space|Raise |   [  |   -  |   =  |] Alt |
+ * | C+S  | Esc  | RAlt | GUI  | Lower|\ Ctrl| Space|Raise |   [  |   -  |   =  |] Alt |
  * `-----------------------------------------------------------------------------------'
  * TODO figure out why KC_LGUI and KC_RALT are swapped
  */
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,    KC_Y,    KC_U,   KC_I,    KC_O,   KC_P,    KC_BSPC, \
   LCTL_T(KC_ESC),  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,    KC_H,    KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,    KC_N,    KC_M,   KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_ENT), \
-  LCTL(KC_LSFT), KC_ESC, KC_RALT, KC_LGUI, LOWER,  MT(MOD_RCTL, KC_BSLS),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, MT(MOD_RALT, KC_RBRC) \
+  LCTL(KC_LSFT), KC_ESC, KC_LALT, KC_LGUI, LOWER,  MT(MOD_RCTL, KC_BSLS),  KC_SPC,  RAISE,  LT(3, KC_LBRC), KC_MINS, KC_EQL, MT(MOD_RALT, KC_RBRC) \
 ),
 /* Lower   (switched to # because KP# were weird in terminal emulators)
  * ,-----------------------------------------------------------------------------------.
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_GRV,   KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,  KC_8, KC_9,    KC_0,  _______, \
    _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_4,  KC_5, KC_6,  KC_DOT, KC_ASTR, \
   _______,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,   KC_F12,  KC_1,  KC_2, KC_3, KC_SLSH,  _______, \
-  KC_ESC, LCTL(KC_LSFT), _______, _______, _______, _______,    KC_0, _______,  _______, _______, KC_PLUS, _______ \
+  _______, _______, _______, _______, _______, _______,    KC_0, _______,  _______, _______, KC_PLUS, _______ \
 ),
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
@@ -99,27 +99,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_ortho_4x12( \
-  KC_ESC, QWERTY,   _______, _______, RESET, M(0),  M(1), RGB_HUI, RGB_HUD, RGB_MODE_BREATHE, PLOVER, LALT(LCTL(KC_DEL)), \
-  KC_CAPS, _______, _______, AU_ON,   AU_OFF,  GAME, _______, AG_NORM,  KC_PSCR, KC_SLCK,  KC_PAUS,  _______, \
-  _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT,  KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, \
-  BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, RGB_MOD , RGB_RMOD , RGB_TOG \
+  KC_ESC, QWERTY,   _______, _______,   RESET,    M(0),    M(1), RGB_HUI, RGB_HUD, RGB_MODE_BREATHE,   PLOVER, LALT(LCTL(KC_DEL)), \
+  KC_CAPS, _______, _______, AU_ON,    AU_OFF,    GAME, _______, AG_NORM, KC_PSCR,          KC_SLCK,  KC_PAUS,            _______, \
+  _______, MUV_DE,  MUV_IN,  MU_ON,    MU_OFF, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD,          KC_VOLU,  _______,            _______, \
+  BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG,          RGB_MOD, RGB_RMOD,             RGB_TOG \
 ),
 /* Game
  * ,-----------------------------------------------------------------------------------.
- * |   T  |   1  |   Q  |   W  |   E  |   R  |   Y  |   U  |   I  |   O  |   P  | Bksp |
- * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |   F  |Shift |   A  |   S  |   D  |   G  | Wh Up|LeftC | M-Up |RightC|   ;  |  '   |
- * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |   B  | Ctrl |   Z  |   X  |   C  |   V  | Wh Dn| M-L  | M-Dn | M-R  |   /  |Enter |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Alt  |   4  |   3  |   2  | Lower|    Space    |Raise | Left | Down |  Up  | Right|
+ * |   ` |  Esc  |   Q  |   W  |   E  |   R  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+ * |-----+-------+------+------+------+-------------+------+------+------+------+------|
+ * |   F | Shift |   A  |   S  |   D  |   V  | Wh Up|LeftC | M-Up |RightC|   ;  |  '   |
+ * |-----+-------+------+------+------+------|------+------+------+------+------+------|
+ * |   B |CtrlTab|   Z  |   X  |   C  |   H  | Wh Dn| M-L  | M-Dn | M-R  |   /  |Enter |
+ * |-----+-------+------+------+------+------+------+------+------+------+------+------|
+ * | Alt |  Tab  |   2  |   1  | Lower|    Space    |Raise | Left | Down |  Up  | Right|
  * `-----------------------------------------------------------------------------------'
  */
 [_GAME] = LAYOUT_ortho_4x12( \
-   KC_T,      KC_1,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC, \
-   KC_F,   KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_G, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_SCLN,  KC_QUOT, \
-   KC_B,   KC_LCTL,   KC_Z,    KC_X,    KC_C,    KC_V, KC_WH_D,  KC_MS_L, KC_MS_D, KC_MS_R, KC_SLSH, _______ , \
-  KC_LALT,   KC_4,    KC_3,    KC_2,    LOWER,  KC_SPC,  KC_SPC,  RAISE, KC_LEFT, KC_DOWN,   KC_UP, KC_RIGHT \
+   KC_GRV,    KC_ESC,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_BSPC, \
+   KC_F,   KC_LSFT,   KC_A,    KC_S,    KC_D,    KC_V, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, KC_SCLN,  KC_QUOT, \
+   KC_B,   LCTL_T(KC_TAB),   KC_Z,    KC_X,    KC_C,    KC_H, KC_WH_D,  KC_MS_L, KC_MS_D, KC_MS_R, KC_SLSH, _______ , \
+  KC_LALT,   KC_TAB,    KC_2,    KC_1,    LOWER,  KC_SPC,  KC_SPC,  RAISE, KC_LEFT, KC_DOWN,   KC_UP, KC_RIGHT \
 ),
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
