@@ -21,6 +21,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
+#ifdef AUDIO_ENABLE
+    #define STARTUP_SONG SONG(STARTUP_SOUND)
+#endif
 //#include QMK_KEYBOARD_CONFIG_H
 
 /* Use I2C or Serial, not both */
