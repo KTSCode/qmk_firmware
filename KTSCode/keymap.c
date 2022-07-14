@@ -116,14 +116,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
   * │   I  │  Alt │   Z  │   X  │   C  │   V  │   B  │   1  │   2  │   3  │   4  │ Enter│
   * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
-  * │  Alt │ Ctrl │ WHDw │ WHUp │ MSB2 │ Space│ Space│ Shft │ Left │ Down │  Up  │ Right│
+  * │  Alt │ Ctrl │ Down │  Up  │ MSB2 │ Space│ Space│ Shft │ Left │ Down │  Up  │ Right│
   * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
   */
   [_GAME] = LAYOUT_planck_grid(
-      KC_GRV,  KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,   KC_T,   KC_BTN1, KC_MS_U, KC_BTN2, KC_Y,  KC_BSPC,
-      KC_LSFT,    KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,   KC_G,   KC_MS_L, KC_MS_D, KC_MS_R, KC_L,  QWERTY,
-      KC_I, KC_RALT, KC_Z,    KC_X,    KC_C,    KC_V,   KC_B,   KC_P1,   KC_P2,   KC_P3,   KC_P4, KC_ENT,
-      KC_LALT, KC_LCTL, KC_WH_D, KC_WH_U, KC_BTN2, KC_SPC, KC_SPC, KC_RSFT, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+      KC_GRV,  KC_ESC,  KC_Q,    KC_W,  KC_E,    KC_R,   KC_T,   KC_BTN1, KC_MS_U, KC_BTN2, KC_Y,    KC_BSPC,
+      KC_LSFT, KC_TAB,  KC_A,    KC_S,  KC_D,    KC_F,   KC_G,   KC_MS_L, KC_MS_D, KC_MS_R, KC_L,    QWERTY,
+      KC_I,    KC_RALT, KC_Z,    KC_X,  KC_C,    KC_V,   KC_B,   KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_ENT,
+      KC_LALT, KC_LCTL, KC_DOWN, KC_UP, KC_BTN2, KC_SPC, KC_SPC, KC_RSFT, KC_LEFT, KC_PGUP, KC_PGUP, KC_RGHT
       )
 
 };
