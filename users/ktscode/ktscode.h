@@ -92,8 +92,8 @@ enum ktscode_keycodes {
  */
 #define KTS_RAISE \
     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,       KC_DEL,         \
-    _______, KC_WH_U, KC_BTN1, KC_MS_U, KC_BTN2, QWERTY,       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, RSFT(KC_MINS), KC_BSLS,        \
-    _______, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, RSFT(KC_EQL), KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC),  \
+    _______, MS_WHLU, MS_BTN1, MS_UP,   MS_BTN2, QWERTY,       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, RSFT(KC_MINS), KC_BSLS,        \
+    _______, MS_WHLD, MS_LEFT, MS_DOWN, MS_RGHT, RSFT(KC_EQL), KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, LSFT(KC_LBRC), LSFT(KC_RBRC),  \
     _______, _______, _______, _______, _______, _______,      KC_INS,  _______, KC_HOME, KC_PGDN, KC_PGUP,       MT(MOD_LGUI, KC_END)
 
 /* GAME
@@ -108,9 +108,9 @@ enum ktscode_keycodes {
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 #define KTS_GAME \
-    KC_GRV,  KC_ESC,  KC_Q,    KC_W,  KC_E,    KC_R,   KC_T,   KC_BTN1, KC_MS_U, KC_BTN2, KC_Y,    KC_BSPC, \
-    KC_LSFT, KC_TAB,  KC_A,    KC_S,  KC_D,    KC_F,   KC_G,   KC_MS_L, KC_MS_D, KC_MS_R, KC_L,    QWERTY,  \
+    KC_GRV,  KC_ESC,  KC_Q,    KC_W,  KC_E,    KC_R,   KC_T,   MS_BTN1, MS_UP,   MS_BTN2, KC_Y,    KC_BSPC, \
+    KC_LSFT, KC_TAB,  KC_A,    KC_S,  KC_D,    KC_F,   KC_G,   MS_LEFT, MS_DOWN, MS_RGHT, KC_L,    QWERTY,  \
     KC_I,    KC_RALT, KC_Z,    KC_X,  KC_C,    KC_V,   KC_B,   KC_P1,   KC_P2,   KC_P3,   KC_P4,   KC_ENT,  \
-    KC_LALT, KC_LCTL, KC_DOWN, KC_UP, KC_BTN2, KC_SPC, KC_SPC, KC_RSFT, KC_LEFT, KC_PGUP, KC_PGUP, KC_RGHT
+    KC_LALT, KC_LCTL, KC_DOWN, KC_UP, MS_BTN2, KC_SPC, KC_SPC, KC_RSFT, KC_LEFT, KC_PGUP, KC_PGUP, KC_RGHT
 
 /* clang-format on */

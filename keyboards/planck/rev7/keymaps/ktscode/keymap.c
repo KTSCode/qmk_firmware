@@ -34,10 +34,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
   */
     [_ADJUST] = LAYOUT_ortho_4x12(
-        KC_ESC,  _______, _______, _______, QK_BOOT, _______, _______, RGB_HUI, RGB_HUD, RGB_MODE_BREATHE, _______,  LALT(LCTL(KC_DEL)),
+        KC_ESC,  _______, _______, _______, QK_BOOT, _______, _______, UG_HUEU, UG_HUED, RGB_MODE_BREATHE, _______,  LALT(LCTL(KC_DEL)),
         KC_CAPS, _______, _______, AU_ON,   AU_OFF,  GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK,   KC_PAUS,  _______,
         _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,          _______,  _______,
-        BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, RGB_MOD,          RGB_RMOD, RGB_TOG
+        BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, UG_NEXT,          UG_PREV,  UG_TOGG
     ),
 
     [_GAME]   = LAYOUT_ortho_4x12_wrapper(KTS_GAME),

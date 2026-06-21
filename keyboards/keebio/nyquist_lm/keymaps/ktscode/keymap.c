@@ -21,10 +21,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
   */
     [_ADJUST] = LAYOUT_ortho_4x12(
-        KC_ESC,  _______, _______, _______, QK_BOOT, _______, _______, RGB_HUI, RGB_HUD, RGB_SPI,        RGB_SPD,  LALT(LCTL(KC_DEL)),
-        KC_CAPS, _______, _______, RGB_SAI, RGB_SAD, GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK, KC_PAUS,  _______,
-        _______, RGB_VAI, RGB_VAD, _______, _______, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,        _______,  _______,
-        BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, _______, RGB_MOD,        RGB_RMOD, RGB_TOG
+        KC_ESC,  _______, _______, _______, QK_BOOT, _______, _______, RM_HUEU, RM_HUED, RM_SPDU,        RM_SPDD,  LALT(LCTL(KC_DEL)),
+        KC_CAPS, _______, _______, RM_SATU, RM_SATD, GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK, KC_PAUS,  _______,
+        _______, RM_VALU, RM_VALD, _______, _______, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,        _______,  _______,
+        BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, _______, RM_NEXT,        RM_PREV,  RM_TOGG
     ),
 
     [_GAME]   = LAYOUT_ortho_4x12_wrapper(KTS_GAME),
