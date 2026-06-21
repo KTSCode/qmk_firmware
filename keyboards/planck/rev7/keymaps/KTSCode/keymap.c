@@ -1,3 +1,19 @@
+/* Copyright 2015-2023 Jack Humbert
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include QMK_KEYBOARD_H
 
 enum planck_layers { _QWERTY, _LOWER, _RAISE, _ADJUST, _GAME };
@@ -77,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [_ADJUST] = LAYOUT_planck_grid(
       KC_ESC,  _______, _______, _______, RESET,   _______, _______, RGB_HUI, RGB_HUD, RGB_MODE_BREATHE, _______,  LALT(LCTL(KC_DEL)),
-      KC_CAPS, _______, _______, AU_ON,   AU_OFF,  GAME,    _______, AG_NORM, KC_PSCR, KC_SLCK,          KC_PAUS,  _______,
-      _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,          _______,  _______,
+      KC_CAPS, _______, _______, AU_ON,   AU_OFF,  GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK,   KC_PAUS,  _______,
+      _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,          _______,  _______,
       BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, BL_TOGG, RGB_MOD,          RGB_RMOD, RGB_TOG
       ),
 
@@ -186,27 +202,11 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 bool dip_switch_update_user(uint8_t index, bool active) {
     switch (index) {
         case 0: {
-#ifdef AUDIO_ENABLE
-            static bool play_sound = false;
-#endif
             if (active) {
-#ifdef AUDIO_ENABLE
-                if (play_sound) {
-                    PLAY_SONG(plover_song);
-                }
-#endif
                 layer_on(_ADJUST);
             } else {
-#ifdef AUDIO_ENABLE
-                if (play_sound) {
-                    PLAY_SONG(plover_gb_song);
-                }
-#endif
                 layer_off(_ADJUST);
             }
-#ifdef AUDIO_ENABLE
-            play_sound = true;
-#endif
             break;
         }
     }
