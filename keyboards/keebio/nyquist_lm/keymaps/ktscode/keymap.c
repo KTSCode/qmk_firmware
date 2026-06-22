@@ -43,5 +43,7 @@ void housekeeping_task_user(void) {
     bool now_idle = last_input_activity_elapsed() > RGB_SCREENSAVER_TIMEOUT;
     if (now_idle == idle) return;
     idle = now_idle;
-    rgb_matrix_mode_noeeprom(idle ? RGB_MATRIX_DIGITAL_RAIN : RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_mode_noeeprom(idle ? RGB_MATRIX_PIXEL_FRACTAL : RGB_MATRIX_SOLID_COLOR);
+    // RIVERFLOW is pretty cool too
+    //rgb_matrix_mode_noeeprom(idle ? RGB_MATRIX_RIVERFLOW : RGB_MATRIX_SOLID_COLOR);
 }

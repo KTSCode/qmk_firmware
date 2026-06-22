@@ -4,8 +4,10 @@ Shared QMK userspace for my three 4x12 ortho boards. The four base layers
 (QWERTY, LOWER, RAISE, GAME) live here as `KTS_*` macros and are **identical on
 every board**; only the hardware-control `ADJUST` layer differs per board.
 
-Source: `users/ktscode/` (shared logic + layers) and
-`keyboards/<board>/keymaps/ktscode/` (per-board `ADJUST` + hardware hooks).
+Source — shared: [`ktscode.h`](/users/ktscode/ktscode.h) (layers + macros),
+[`ktscode.c`](/users/ktscode/ktscode.c) (tri-layer + keycodes),
+[`config.h`](/users/ktscode/config.h) (tap-hold tuning). Each board's
+`keymap.c` (its `ADJUST` + hardware hooks) is linked in its section below.
 
 ## Boards
 
@@ -78,6 +80,8 @@ RGB effect, **RGBtg** = RGB on/off.
 
 ### Nyquist LM rev1 — rgb_matrix
 
+Source: [`keymap.c`](/keyboards/keebio/nyquist_lm/keymaps/ktscode/keymap.c) · [`config.h`](/keyboards/keebio/nyquist_lm/keymaps/ktscode/config.h)
+
 ```text
 Esc    ·      ·      ·      Boot   ·    │  ·      Hue+   Hue-   Spd+   Spd-   C-A-D
 Caps   ·      ·      Sat+   Sat-   GAME │  ·      AGnrm  PrtSc  ScrLk  Pause  ·
@@ -91,6 +95,8 @@ Light  ·      ·      ·      ·      Play │  Play   ·      ·      FX+    F
 
 ### Planck rev7 — rgblight + audio
 
+Source: [`keymap.c`](/keyboards/planck/rev7/keymaps/ktscode/keymap.c) · [`rules.mk`](/keyboards/planck/rev7/keymaps/ktscode/rules.mk)
+
 ```text
 Esc    ·      ·      ·      Boot   ·    │  ·      Hue+   Hue-   Breath ·      C-A-D
 Caps   ·      ·      AudOn  AudOff GAME │  ·      AGnrm  PrtSc  ScrLk  Pause  ·
@@ -102,6 +108,8 @@ Light  ·      ·      ·      ·      Play │  Play   ·      BLtog  FX+    FX
 - Rotary encoder plays a pitch-bending tone; dip switch toggles ADJUST.
 
 ### Levinson rev2 — rgblight + backlight
+
+Source: [`keymap.c`](/keyboards/keebio/levinson/keymaps/ktscode/keymap.c) · [`rules.mk`](/keyboards/keebio/levinson/keymaps/ktscode/rules.mk)
 
 ```text
 Esc    ·      ·      ·      Boot   ·    │  ·      Hue+   Hue-   Spd+   Spd-   C-A-D
