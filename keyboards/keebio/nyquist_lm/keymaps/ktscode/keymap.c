@@ -22,8 +22,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
     [_ADJUST] = LAYOUT_ortho_4x12(
         KC_ESC,  _______, _______, _______, QK_BOOT, _______, _______, RM_HUEU, RM_HUED, RM_SPDU,        RM_SPDD,  LALT(LCTL(KC_DEL)),
-        KC_CAPS, EE_CLR,  _______, RM_SATU, RM_SATD, GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK, KC_PAUS,  _______,
-        DT_PRNT, RM_VALU, RM_VALD, DT_DOWN, DT_UP,   KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,        _______,  _______,
+        KC_CAPS, _______, _______, RM_SATU, RM_SATD, GAME,    _______, AG_NORM, KC_PSCR, KC_SCROLL_LOCK, KC_PAUS,  _______,
+        _______, RM_VALU, RM_VALD, _______, _______, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU,        _______,  _______,
         BACKLIT, _______, _______, _______, _______, KC_MPLY, KC_MPLY, _______, _______, RM_NEXT,        RM_PREV,  RM_TOGG
     ),
 

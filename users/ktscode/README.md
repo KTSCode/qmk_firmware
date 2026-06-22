@@ -117,7 +117,7 @@ Light  ·      ·      ·      BLstp  Play │  Play   ·      BLtog  FX+    FX-
 
 How this userspace came together (newest first):
 
-- **Mod-tap tuning** — `TAPPING_TERM` lowered to 150 ms with `PERMISSIVE_HOLD` and `QUICK_TAP_TERM 0` so fast Ctrl+A / tmux rolls register the modifier instead of the tapped letter ([precondition home-row-mods guide](https://precondition.github.io/home-row-mods)). A live tuner (`DYNAMIC_TAPPING_TERM`, DT keys on ADJUST) is temporary while the value is dialed in.
+- **Mod-tap tuning** — `TAPPING_TERM` set to 110 ms with `PERMISSIVE_HOLD` and `QUICK_TAP_TERM 0` so fast Ctrl+A / tmux rolls register the modifier instead of the tapped letter ([precondition home-row-mods guide](https://precondition.github.io/home-row-mods)).
 - **Nyquist RGB** — green default hue, plus a "screensaver": Digital Rain after 60 s idle, back to Solid on the next key (`housekeeping_task_user` in the keymap).
 - **Dead-key fix** — a non-responsive LOWER key turned out to be a cold solder joint on the hotswap socket, found with `qmk console` matrix debug; the key's row and column both worked for other keys, isolating the fault to that one switch.
 - **Core update** — merged `upstream/master` so the 2025 Nyquist LM (`keyboard.json`) builds; the previous core (QMK 0.21.3) predated that data-driven format.
@@ -144,7 +144,6 @@ Notes:
 
 - **STM32 (Nyquist, Planck)**: after `File downloaded successfully`, dfu-util prints `Error during download get_status` / `Error 74`. Harmless — the chip resets before dfu-util can read status; the flash already succeeded.
 - **Levinson (AVR)**: caterina bootloader, double-tap reset.
-- `EE_CLR` (temporarily on ADJUST = the `A` key) wipes EEPROM to firmware defaults (green hue, 150 ms term). Use once to apply a new default.
 
 ## Committing & pushing
 
