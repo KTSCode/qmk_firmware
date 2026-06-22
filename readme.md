@@ -8,6 +8,10 @@
 
 This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers, and more specifically, the [OLKB product line](https://olkb.com), the [ErgoDox EZ](https://ergodox-ez.com) keyboard, and the Clueboard product line.
 
+## My keyboards (KTSCode fork)
+
+Shared layout and a full per-layer key reference for my boards (Nyquist LM, Planck rev7, Levinson rev2): **[users/ktscode/README.md](/users/ktscode/README.md)**
+
 ## Documentation
 
 * [See the official documentation on docs.qmk.fm](https://docs.qmk.fm)
